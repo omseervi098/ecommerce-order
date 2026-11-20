@@ -36,4 +36,3 @@ All rules live in `app/orders.py`; `app/main.py` only maps them to HTTP.
 | GET | `/api/orders?q=&status=` | |
 | GET | `/api/orders/{ref}` | |
 | POST | `/api/orders/{ref}/status` | `{"status": "PACKED"}` |
-# ecommerce-order
