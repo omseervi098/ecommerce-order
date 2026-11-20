@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Console</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Order Console</h1>
+    <p class="muted">Create, find and fulfil phone orders</p>
+  </header>
+
+  <div id="banner" class="banner" role="status" aria-live="polite" hidden></div>
+
+  <main>
+    <section class="panel" aria-labelledby="new-order-title">
+      <h2 id="new-order-title">New order</h2>
+      <form id="order-form">
+        <table class="catalogue">
+          <thead>
+            <tr><th>Product</th><th>Price</th><th>Stock</th><th>Qty</th></tr>
+          </thead>
+          <tbody id="catalogue-body"></tbody>
+        </table>
+        <div class="order-footer">
+          <span>Total: <strong id="order-total">£0.00</strong></span>
+          <div>
+            <button type="reset" class="secondary">Clear</button>
+            <button type="submit" id="submit-order" disabled>Place order</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="orders-title">
+      <h2 id="orders-title">Orders</h2>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search by reference, e.g. ORD-0001" aria-label="Search by order reference">
+        <select id="status-filter" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option>PLACED</option>
+          <option>PACKED</option>
+          <option>SHIPPED</option>
+          <option>CANCELLED</option>
+        </select>
+      </div>
+      <table class="orders">
+        <thead><tr><th>Reference</th><th>Status</th><th>Items</th><th>Total</th><th>Created (UTC)</th></tr></thead>
+        <tbody id="orders-body"></tbody>
+      </table>
+      <p id="orders-empty" class="muted" hidden>No orders match.</p>
+
+      <div id="order-detail" class="detail" hidden></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
